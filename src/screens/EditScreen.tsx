@@ -17,6 +17,7 @@ const EditScreen: React.FC<StackScreenProps<any>> = ({navigation}) => {
     const [username, setUsername]=useState<string>('');
     const [age, setAge]=useState<string>('');
     const [phone, setPhone]=useState<string>('');
+    const [token, setToken] = useState<string>('');
     let IdUser = auth.currentUser?.uid;
 
     console.log(IdUser);
@@ -29,6 +30,7 @@ const EditScreen: React.FC<StackScreenProps<any>> = ({navigation}) => {
              setUsername(doc.data()?.username);
              setAge(doc.data()?.age);
              setPhone(doc.data()?.phone);
+             setToken(doc.data()?.token);
          });
     }
 
@@ -36,7 +38,8 @@ const EditScreen: React.FC<StackScreenProps<any>> = ({navigation}) => {
         await setDoc(doc(firestore, "users", IdUser ? IdUser : " "), {
             phone: phone,
             username: username,
-            age: age
+            age: age,
+            token: token
         });
         navigation.navigate("Home");
     }

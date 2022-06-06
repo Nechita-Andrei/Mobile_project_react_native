@@ -25,8 +25,7 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({navigation}) => {
     const [age, setAge] = useState<string>('');
     const [phone, setPhone] = useState<string>('');
     const [token, setToken] = useState<string>('');
-
-
+    usePushNotifications();
 
     async function showInfo() {
         let idUser = auth.currentUser?.uid;
@@ -42,12 +41,14 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({navigation}) => {
             setToken(doc.data()?.token);
 
         });
+        console.log(token)
 
     }
     async function showNotif(){
+
         await sendPushNotification({
             pushToken: token,
-            message: "exp://192.168.0.164:19000/--/zboruri",
+            message: "exp://192.168.0.43:19000/--/zboruri",
             title: "hello"
         });
     }

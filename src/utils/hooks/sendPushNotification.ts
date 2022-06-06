@@ -25,11 +25,14 @@ const sendPushNotification = async ({
         to: pushToken,
         sound: 'default',
         body: message,
-        title: title
+        title: title,
+        priority: "high"
     });
 
     try {
+
         await expo.sendPushNotificationsAsync(messages);
+        console.log(messages)
     } catch (error) {
         console.error(error);
     }
