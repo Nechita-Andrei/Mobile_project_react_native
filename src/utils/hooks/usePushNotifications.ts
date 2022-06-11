@@ -30,7 +30,6 @@ const usePushNotifications = (
 ): {
     notification: Notification | null;
 } => {
-    console.log("oare")
     const [notification, setNotification] = useState<Notification | null>(null);
     const notificationListener = useRef<Subscription>();
     const responseListener = useRef<Subscription>();

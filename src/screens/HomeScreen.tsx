@@ -27,6 +27,7 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({navigation}) => {
     const [token, setToken] = useState<string>('');
     usePushNotifications();
 
+
     async function showInfo() {
         let idUser = auth.currentUser?.uid;
         if (idUser === undefined) {
@@ -75,7 +76,11 @@ const HomeScreen: React.FC<StackScreenProps<any>> = ({navigation}) => {
                 <Space/>
                 <CustomButton label={"Show notif"} width={200} onPress={showNotif}/>
                 <Space/>
+                <Button title="Afiseaza zboruri api" onPress={()=>navigation.navigate("FetchData")}/>
+                <Space/>
                 <Button title="Sign Out" style={styles.button} onPress={() => signOut(auth)}/>
+
+
 
             </View>
         </View>

@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import React from "react";
 import {IZbor, ZBOR_STATUS} from "../context/ZborContext";
 import {StyleSheet, Text} from "react-native";
-import Animated, {BounceInRight, FlipInEasyY} from "react-native-reanimated";
+import Animated, {SlideInRight} from "react-native-reanimated";
 
 const Title = styled.Text`
   font-weight: bold;
@@ -20,7 +20,7 @@ const Zbor: React.FC<{ zbor: IZbor; index: number }> = ({zbor, index}) => {
     const {status, title} = zbor;
     return (
 
-        <Animated.View entering={FlipInEasyY}
+        <Animated.View entering={SlideInRight}
                        style={styles.container}>
             <Title>{title}</Title>
             <Text>{labelMap[status]}</Text>

@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
 import EditScreen from "../screens/EditScreen";
 import ZborScreen from "../screens/ZborScreen";
+import FetchDataScreen from "../screens/FetchDataScreen";
 import * as Linking from "expo-linking";
 import {EventType} from "expo-linking";
 
@@ -44,6 +45,7 @@ export default function UserStack() {
                 <Stack.Screen name="Home" component={HomeScreen} />
                 <Stack.Screen name="Edit" component={EditScreen} />
                 <Stack.Screen name="Zboruri" component={ZborScreen}/>
+                <Stack.Screen name="FetchData" component={FetchDataScreen}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
